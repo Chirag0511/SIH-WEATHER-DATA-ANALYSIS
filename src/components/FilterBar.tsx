@@ -38,7 +38,7 @@ export default function FilterBar({ filters, onFilterChange, totalFilteredCount 
     filters.dateRange !== 'all';
 
   return (
-    <div className="bg-[#0b1b36] border border-[#1d3557] rounded-xl p-3 sm:p-4 shadow-lg mb-4">
+    <div className="bg-white dark:bg-[#0b1b36] border border-slate-200 dark:border-[#1d3557] rounded-xl p-3 sm:p-4 shadow-sm dark:shadow-lg mb-4 transition-colors duration-200">
       <div className="flex flex-col gap-3">
         {/* Search bar row */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
@@ -49,18 +49,18 @@ export default function FilterBar({ filters, onFilterChange, totalFilteredCount 
               placeholder="Search by location, district, state, or weather keywords (e.g. Mumbai, Cyclone, Landslide)..."
               value={filters.searchQuery}
               onChange={handleTextChange}
-              className="w-full pl-9 pr-4 py-2 bg-[#061124] border border-[#1e3a64] rounded-lg text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-blue-400 transition-colors"
+              className="w-full pl-9 pr-4 py-2 bg-slate-50 dark:bg-[#061124] border border-slate-300 dark:border-[#1e3a64] rounded-lg text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
 
           <div className="flex items-center space-x-2 self-end sm:self-auto">
-            <span className="text-xs text-slate-300 bg-blue-950/80 border border-blue-800/60 px-3 py-1.5 rounded-lg font-medium whitespace-nowrap">
-              <span className="text-sky-300 font-bold">{totalFilteredCount}</span> Events Active
+            <span className="text-xs text-slate-700 dark:text-slate-300 bg-blue-50 dark:bg-blue-950/80 border border-blue-200 dark:border-blue-800/60 px-3 py-1.5 rounded-lg font-medium whitespace-nowrap">
+              <span className="text-blue-700 dark:text-sky-300 font-bold">{totalFilteredCount}</span> Events Active
             </span>
             {isFiltered && (
               <button
                 onClick={handleReset}
-                className="flex items-center space-x-1 px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg text-xs transition-colors border border-slate-700"
+                className="flex items-center space-x-1 px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg text-xs transition-colors border border-slate-300 dark:border-slate-700"
                 title="Reset all filters"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
@@ -74,13 +74,13 @@ export default function FilterBar({ filters, onFilterChange, totalFilteredCount 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 pt-1 text-xs">
           {/* Category */}
           <div>
-            <label className="block text-[10px] uppercase font-semibold text-slate-400 mb-1">
+            <label className="block text-[10px] uppercase font-semibold text-slate-500 dark:text-slate-400 mb-1">
               Weather Event
             </label>
             <select
               value={filters.category}
               onChange={(e) => handleSelectChange('category', e.target.value)}
-              className="w-full px-2.5 py-1.5 bg-[#061124] border border-[#1e3a64] rounded-md text-slate-200 focus:outline-none focus:border-blue-400"
+              className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#061124] border border-slate-300 dark:border-[#1e3a64] rounded-md text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500"
             >
               <option value="all">All Categories</option>
               <option value="cyclone">Cyclone / Storm</option>
@@ -95,13 +95,13 @@ export default function FilterBar({ filters, onFilterChange, totalFilteredCount 
 
           {/* Severity */}
           <div>
-            <label className="block text-[10px] uppercase font-semibold text-slate-400 mb-1">
+            <label className="block text-[10px] uppercase font-semibold text-slate-500 dark:text-slate-400 mb-1">
               Severity Level
             </label>
             <select
               value={filters.severity}
               onChange={(e) => handleSelectChange('severity', e.target.value)}
-              className="w-full px-2.5 py-1.5 bg-[#061124] border border-[#1e3a64] rounded-md text-slate-200 focus:outline-none focus:border-blue-400"
+              className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#061124] border border-slate-300 dark:border-[#1e3a64] rounded-md text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500"
             >
               <option value="all">All Severities</option>
               <option value="critical">Critical (Red Alert)</option>
@@ -113,13 +113,13 @@ export default function FilterBar({ filters, onFilterChange, totalFilteredCount 
 
           {/* Verification Status */}
           <div>
-            <label className="block text-[10px] uppercase font-semibold text-slate-400 mb-1">
+            <label className="block text-[10px] uppercase font-semibold text-slate-500 dark:text-slate-400 mb-1">
               Verification Status
             </label>
             <select
               value={filters.status}
               onChange={(e) => handleSelectChange('status', e.target.value)}
-              className="w-full px-2.5 py-1.5 bg-[#061124] border border-[#1e3a64] rounded-md text-slate-200 focus:outline-none focus:border-blue-400"
+              className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#061124] border border-slate-300 dark:border-[#1e3a64] rounded-md text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500"
             >
               <option value="all">All Verification</option>
               <option value="verified">Verified (Corroborated)</option>
@@ -131,13 +131,13 @@ export default function FilterBar({ filters, onFilterChange, totalFilteredCount 
 
           {/* State / UT */}
           <div>
-            <label className="block text-[10px] uppercase font-semibold text-slate-400 mb-1">
+            <label className="block text-[10px] uppercase font-semibold text-slate-500 dark:text-slate-400 mb-1">
               State / Union Territory
             </label>
             <select
               value={filters.state}
               onChange={(e) => handleSelectChange('state', e.target.value)}
-              className="w-full px-2.5 py-1.5 bg-[#061124] border border-[#1e3a64] rounded-md text-slate-200 focus:outline-none focus:border-blue-400"
+              className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#061124] border border-slate-300 dark:border-[#1e3a64] rounded-md text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500"
             >
               <option value="all">Pan-India (All States)</option>
               {INDIAN_STATES.map((state) => (
@@ -150,13 +150,13 @@ export default function FilterBar({ filters, onFilterChange, totalFilteredCount 
 
           {/* Timeframe */}
           <div className="col-span-2 sm:col-span-1">
-            <label className="block text-[10px] uppercase font-semibold text-slate-400 mb-1">
+            <label className="block text-[10px] uppercase font-semibold text-slate-500 dark:text-slate-400 mb-1">
               Time Window
             </label>
             <select
               value={filters.dateRange}
               onChange={(e) => handleSelectChange('dateRange', e.target.value as any)}
-              className="w-full px-2.5 py-1.5 bg-[#061124] border border-[#1e3a64] rounded-md text-slate-200 focus:outline-none focus:border-blue-400"
+              className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#061124] border border-slate-300 dark:border-[#1e3a64] rounded-md text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500"
             >
               <option value="all">Live Active (All)</option>
               <option value="24h">Past 24 Hours</option>

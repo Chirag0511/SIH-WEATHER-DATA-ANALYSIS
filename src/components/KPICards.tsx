@@ -20,27 +20,27 @@ export default function KPICards({ summary }: KPICardsProps) {
       value: summary.totalEvents,
       subtext: 'Across 28 States & 8 UTs',
       icon: Layers,
-      color: 'text-sky-400',
-      border: 'border-sky-500/30',
-      bg: 'bg-sky-950/20',
+      color: 'text-sky-600 dark:text-sky-400',
+      border: 'border-sky-300 dark:border-sky-500/30',
+      bg: 'bg-sky-50 dark:bg-sky-950/20',
     },
     {
       label: 'Verified Weather Events',
       value: summary.verifiedEvents,
-      subtext: `${Math.round((summary.verifiedEvents / summary.totalEvents) * 100)}% verification rate`,
+      subtext: `${Math.round((summary.verifiedEvents / (summary.totalEvents || 1)) * 100)}% verification rate`,
       icon: ShieldCheck,
-      color: 'text-emerald-400',
-      border: 'border-emerald-500/30',
-      bg: 'bg-emerald-950/20',
+      color: 'text-emerald-600 dark:text-emerald-400',
+      border: 'border-emerald-300 dark:border-emerald-500/30',
+      bg: 'bg-emerald-50 dark:bg-emerald-950/20',
     },
     {
       label: 'Critical / Red Alerts',
       value: summary.criticalAlerts,
       subtext: 'Immediate action advised',
       icon: AlertTriangle,
-      color: 'text-rose-400',
-      border: 'border-rose-500/40',
-      bg: 'bg-rose-950/30',
+      color: 'text-rose-600 dark:text-rose-400',
+      border: 'border-rose-300 dark:border-rose-500/40',
+      bg: 'bg-rose-50 dark:bg-rose-950/30',
       pulse: true,
     },
     {
@@ -48,27 +48,27 @@ export default function KPICards({ summary }: KPICardsProps) {
       value: summary.activeStatesCount,
       subtext: 'Regional warning zones',
       icon: MapPin,
-      color: 'text-amber-400',
-      border: 'border-amber-500/30',
-      bg: 'bg-amber-950/20',
+      color: 'text-amber-600 dark:text-amber-400',
+      border: 'border-amber-300 dark:border-amber-500/30',
+      bg: 'bg-amber-50 dark:bg-amber-950/20',
     },
     {
       label: 'AI Corroboration Score',
       value: `${summary.averageConfidence}%`,
       subtext: 'Multi-source confidence',
       icon: Cpu,
-      color: 'text-indigo-400',
-      border: 'border-indigo-500/30',
-      bg: 'bg-indigo-950/20',
+      color: 'text-indigo-600 dark:text-indigo-400',
+      border: 'border-indigo-300 dark:border-indigo-500/30',
+      bg: 'bg-indigo-50 dark:bg-indigo-950/20',
     },
     {
       label: 'Citizen Ground Truth',
       value: summary.citizenReportsCount,
       subtext: 'Crowdsourced geotags',
       icon: Users,
-      color: 'text-cyan-400',
-      border: 'border-cyan-500/30',
-      bg: 'bg-cyan-950/20',
+      color: 'text-cyan-600 dark:text-cyan-400',
+      border: 'border-cyan-300 dark:border-cyan-500/30',
+      bg: 'bg-cyan-50 dark:bg-cyan-950/20',
     },
   ];
 
@@ -79,19 +79,19 @@ export default function KPICards({ summary }: KPICardsProps) {
         return (
           <div
             key={idx}
-            className={`p-3.5 sm:p-4 rounded-xl border ${card.border} ${card.bg} backdrop-blur-md shadow-lg transition-all hover:scale-[1.02] flex flex-col justify-between`}
+            className={`p-3.5 sm:p-4 rounded-xl border ${card.border} ${card.bg} backdrop-blur-md shadow-sm dark:shadow-lg transition-all hover:scale-[1.02] flex flex-col justify-between`}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[11px] font-semibold text-slate-300 line-clamp-1">
+              <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 line-clamp-1">
                 {card.label}
               </span>
               <Icon className={`w-4 h-4 ${card.color} ${card.pulse ? 'animate-bounce' : ''}`} />
             </div>
             <div>
-              <div className="text-xl sm:text-2xl font-black text-white tracking-tight">
+              <div className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
                 {card.value}
               </div>
-              <div className="text-[10px] text-slate-400 mt-0.5 truncate">
+              <div className="text-[10px] text-slate-600 dark:text-slate-400 mt-0.5 truncate">
                 {card.subtext}
               </div>
             </div>
