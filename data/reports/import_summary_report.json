@@ -1,0 +1,29 @@
+{
+  "excel_synoptic_dataset": {
+    "dataset_name": "Indian Synoptic & Weather Excel Dataset",
+    "files_read": [
+      "Location information.xlsx",
+      "Weather data.xlsx",
+      "Air quality information.xlsx"
+    ],
+    "records_read": 24070,
+    "records_imported": 879,
+    "records_skipped": 0,
+    "records_rejected": 0,
+    "rejection_reasons": {},
+    "status": "completed"
+  },
+  "csv_popular_cities": {
+    "dataset_name": "Popular Indian Cities Historical Weather CSV",
+    "file": "popular_cities_weather.csv",
+    "records_read": 7056,
+    "duplicate_records_removed": 144,
+    "records_imported": 1120,
+    "records_skipped": 0,
+    "records_rejected": 2670,
+    "rejection_reasons": {
+      "unmapped_city_coordinates": 2670
+    },
+    "status": "completed"
+  }
+}
